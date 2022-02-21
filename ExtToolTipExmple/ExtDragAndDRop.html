@@ -1,0 +1,79 @@
+//drag drop 
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <link href = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" 
+         rel = "stylesheet" />
+      <script type = "text/javascript" 
+         src = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+      
+      <script type = "text/javascript">
+         Ext.application ({
+            launch: function() {
+               var images = Ext.get('images').select('img');
+               Ext.each(images.elements, function(el) {
+                  var dd = Ext.create('Ext.dd.DD', el, 'imagesDDGroup', {
+                     isTarget: false
+                  });
+               });
+            }
+         }); 
+         var mainTarget = Ext.create('Ext.dd.DDTarget', 'mainRoom', 'imagesDDGroup', {
+            ignoreSelf: false
+         });
+      </script>
+      
+      <style>
+         #content {
+            width:600px;
+            height:400px;
+            padding:10px;
+            border:1px solid #000;
+         }
+         #images {
+            float:left;
+            width:40%;
+            height:100%;
+            border:1px solid Black;
+            background-color:rgba(222, 222, 222, 1.0);
+         }
+         #mainRoom {
+            float:left;
+            width:55%;
+            height:100%;
+            margin-left:15px;
+            border:1px solid Black;
+            background-color:rgba(222, 222, 222, 1.0);
+         }
+         .image {   
+            width:64px;
+            height:64px;
+            margin:10px;
+            cursor:pointer;
+            border:1px solid Black;
+            display: inline-block;
+         }
+      </style>
+   </head>
+   
+   <body>
+      <div id = "content">   
+         <div id = "images"> 
+            <img src = "https://www.google.com/search?q=cartoon+images&rlz=1C1ONGR_enIN945IN945&sxsrf=APq-WBvkW0quV7UQGZBwoN94DkFReEuWKg:1645216433266&tbm=isch&source=iu&ictx=1&vet=1&fir=fzi7iHfluoQI0M%252C9BIeJDHfn5pFcM%252C_%253BbHs5OGmSUL9tbM%252CdOoxP5_ao8d4yM%252C_%253BSGjyUI8sXUJpVM%252CBe05mWAeLaRwzM%252C_%253B5OTOge3y1F0SyM%252CvybX5C2OXJcY2M%252C_%253Bf1kLFksEOf0HtM%252CtEOfIPmXcqChVM%252C_%253BfnF05X4o19aiaM%252CjaXbvt1Vrk8kAM%252C_%253Bb8CaxgMAd5eAkM%252CqdglPui-Aqpn8M%252C_%253BJxuk6D49qRYV2M%252CAvxIzeqhipYrBM%252C_%253BXNv7F05cZ_ePZM%252CxOZwh5qrnqCxaM%252C_%253Bza2dOIQWk01GzM%252C-76aqzfheNEvJM%252C_%253B0Kf6yOKmj4JGSM%252CKi_s_JNsRUUR-M%252C_%253BtzBnyv10u0yXwM%252CAabyjzrAPyr3wM%252C_%253Bx94hm5PrazsflM%252CaVvhUV3s5R8x-M%252C_%253BQQJQvfZLYEGGtM%252CJQku3dgFniRM9M%252C_%253B8Ms_4REHZcO67M%252Cr-Fh9r52AkdzJM%252C_%253B88-Xt8a6vo0dTM%252CmTjJlzJfVyk02M%252C_%253BgnxWgSAnuc1MFM%252CMaxYR6zR398b5M%252C_%253B8N84JLKRZDIfWM%252C8VCMW56v15o1PM%252C_%253BDYRbZP3MwAtqJM%252C3ldcd4qASjBDkM%252C_&usg=AI4_-kTTUKyabyGw_U2cv9Tdf2iJq6z96g&sa=X&ved=2ahUKEwj_jNXojIr2AhVVTGwGHY5lABkQ9QF6BAgEEAE#imgrc=fzi7iHfluoQI0M" class = "image" crossorigin="anonymous" />
+            <img src = "https://www.google.com/search?q=cartoon+images&rlz=1C1ONGR_enIN945IN945&sxsrf=APq-WBvkW0quV7UQGZBwoN94DkFReEuWKg:1645216433266&tbm=isch&source=iu&ictx=1&vet=1&fir=fzi7iHfluoQI0M%252C9BIeJDHfn5pFcM%252C_%253BbHs5OGmSUL9tbM%252CdOoxP5_ao8d4yM%252C_%253BSGjyUI8sXUJpVM%252CBe05mWAeLaRwzM%252C_%253B5OTOge3y1F0SyM%252CvybX5C2OXJcY2M%252C_%253Bf1kLFksEOf0HtM%252CtEOfIPmXcqChVM%252C_%253BfnF05X4o19aiaM%252CjaXbvt1Vrk8kAM%252C_%253Bb8CaxgMAd5eAkM%252CqdglPui-Aqpn8M%252C_%253BJxuk6D49qRYV2M%252CAvxIzeqhipYrBM%252C_%253BXNv7F05cZ_ePZM%252CxOZwh5qrnqCxaM%252C_%253Bza2dOIQWk01GzM%252C-76aqzfheNEvJM%252C_%253B0Kf6yOKmj4JGSM%252CKi_s_JNsRUUR-M%252C_%253BtzBnyv10u0yXwM%252CAabyjzrAPyr3wM%252C_%253Bx94hm5PrazsflM%252CaVvhUV3s5R8x-M%252C_%253BQQJQvfZLYEGGtM%252CJQku3dgFniRM9M%252C_%253B8Ms_4REHZcO67M%252Cr-Fh9r52AkdzJM%252C_%253B88-Xt8a6vo0dTM%252CmTjJlzJfVyk02M%252C_%253BgnxWgSAnuc1MFM%252CMaxYR6zR398b5M%252C_%253B8N84JLKRZDIfWM%252C8VCMW56v15o1PM%252C_%253BDYRbZP3MwAtqJM%252C3ldcd4qASjBDkM%252C_&usg=AI4_-kTTUKyabyGw_U2cv9Tdf2iJq6z96g&sa=X&ved=2ahUKEwj_jNXojIr2AhVVTGwGHY5lABkQ9QF6BAgkEAE#imgrc=SGjyUI8sXUJpVM" class = "image" crossorigin="anonymous" />
+            <img src = "https://www.google.com/search?q=cartoon+images&rlz=1C1ONGR_enIN945IN945&sxsrf=APq-WBvkW0quV7UQGZBwoN94DkFReEuWKg:1645216433266&tbm=isch&source=iu&ictx=1&vet=1&fir=fzi7iHfluoQI0M%252C9BIeJDHfn5pFcM%252C_%253BbHs5OGmSUL9tbM%252CdOoxP5_ao8d4yM%252C_%253BSGjyUI8sXUJpVM%252CBe05mWAeLaRwzM%252C_%253B5OTOge3y1F0SyM%252CvybX5C2OXJcY2M%252C_%253Bf1kLFksEOf0HtM%252CtEOfIPmXcqChVM%252C_%253BfnF05X4o19aiaM%252CjaXbvt1Vrk8kAM%252C_%253Bb8CaxgMAd5eAkM%252CqdglPui-Aqpn8M%252C_%253BJxuk6D49qRYV2M%252CAvxIzeqhipYrBM%252C_%253BXNv7F05cZ_ePZM%252CxOZwh5qrnqCxaM%252C_%253Bza2dOIQWk01GzM%252C-76aqzfheNEvJM%252C_%253B0Kf6yOKmj4JGSM%252CKi_s_JNsRUUR-M%252C_%253BtzBnyv10u0yXwM%252CAabyjzrAPyr3wM%252C_%253Bx94hm5PrazsflM%252CaVvhUV3s5R8x-M%252C_%253BQQJQvfZLYEGGtM%252CJQku3dgFniRM9M%252C_%253B8Ms_4REHZcO67M%252Cr-Fh9r52AkdzJM%252C_%253B88-Xt8a6vo0dTM%252CmTjJlzJfVyk02M%252C_%253BgnxWgSAnuc1MFM%252CMaxYR6zR398b5M%252C_%253B8N84JLKRZDIfWM%252C8VCMW56v15o1PM%252C_%253BDYRbZP3MwAtqJM%252C3ldcd4qASjBDkM%252C_&usg=AI4_-kTTUKyabyGw_U2cv9Tdf2iJq6z96g&sa=X&ved=2ahUKEwj_jNXojIr2AhVVTGwGHY5lABkQ9QF6BAgQEAE#imgrc=5OTOge3y1F0SyM" class = "image" crossorigin="anonymous" />
+            <img src = "https://www.google.com/search?q=cartoon+images&rlz=1C1ONGR_enIN945IN945&sxsrf=APq-WBvkW0quV7UQGZBwoN94DkFReEuWKg:1645216433266&tbm=isch&source=iu&ictx=1&vet=1&fir=fzi7iHfluoQI0M%252C9BIeJDHfn5pFcM%252C_%253BbHs5OGmSUL9tbM%252CdOoxP5_ao8d4yM%252C_%253BSGjyUI8sXUJpVM%252CBe05mWAeLaRwzM%252C_%253B5OTOge3y1F0SyM%252CvybX5C2OXJcY2M%252C_%253Bf1kLFksEOf0HtM%252CtEOfIPmXcqChVM%252C_%253BfnF05X4o19aiaM%252CjaXbvt1Vrk8kAM%252C_%253Bb8CaxgMAd5eAkM%252CqdglPui-Aqpn8M%252C_%253BJxuk6D49qRYV2M%252CAvxIzeqhipYrBM%252C_%253BXNv7F05cZ_ePZM%252CxOZwh5qrnqCxaM%252C_%253Bza2dOIQWk01GzM%252C-76aqzfheNEvJM%252C_%253B0Kf6yOKmj4JGSM%252CKi_s_JNsRUUR-M%252C_%253BtzBnyv10u0yXwM%252CAabyjzrAPyr3wM%252C_%253Bx94hm5PrazsflM%252CaVvhUV3s5R8x-M%252C_%253BQQJQvfZLYEGGtM%252CJQku3dgFniRM9M%252C_%253B8Ms_4REHZcO67M%252Cr-Fh9r52AkdzJM%252C_%253B88-Xt8a6vo0dTM%252CmTjJlzJfVyk02M%252C_%253BgnxWgSAnuc1MFM%252CMaxYR6zR398b5M%252C_%253B8N84JLKRZDIfWM%252C8VCMW56v15o1PM%252C_%253BDYRbZP3MwAtqJM%252C3ldcd4qASjBDkM%252C_&usg=AI4_-kTTUKyabyGw_U2cv9Tdf2iJq6z96g&sa=X&ved=2ahUKEwj_jNXojIr2AhVVTGwGHY5lABkQ9QF6BAgDEAE#imgrc=8N84JLKRZDIfWM" class = "image" crossorigin="anonymous" />
+            <img src = "https://www.google.com/search?q=cartoon+images&rlz=1C1ONGR_enIN945IN945&sxsrf=APq-WBvkW0quV7UQGZBwoN94DkFReEuWKg:1645216433266&tbm=isch&source=iu&ictx=1&vet=1&fir=fzi7iHfluoQI0M%252C9BIeJDHfn5pFcM%252C_%253BbHs5OGmSUL9tbM%252CdOoxP5_ao8d4yM%252C_%253BSGjyUI8sXUJpVM%252CBe05mWAeLaRwzM%252C_%253B5OTOge3y1F0SyM%252CvybX5C2OXJcY2M%252C_%253Bf1kLFksEOf0HtM%252CtEOfIPmXcqChVM%252C_%253BfnF05X4o19aiaM%252CjaXbvt1Vrk8kAM%252C_%253Bb8CaxgMAd5eAkM%252CqdglPui-Aqpn8M%252C_%253BJxuk6D49qRYV2M%252CAvxIzeqhipYrBM%252C_%253BXNv7F05cZ_ePZM%252CxOZwh5qrnqCxaM%252C_%253Bza2dOIQWk01GzM%252C-76aqzfheNEvJM%252C_%253B0Kf6yOKmj4JGSM%252CKi_s_JNsRUUR-M%252C_%253BtzBnyv10u0yXwM%252CAabyjzrAPyr3wM%252C_%253Bx94hm5PrazsflM%252CaVvhUV3s5R8x-M%252C_%253BQQJQvfZLYEGGtM%252CJQku3dgFniRM9M%252C_%253B8Ms_4REHZcO67M%252Cr-Fh9r52AkdzJM%252C_%253B88-Xt8a6vo0dTM%252CmTjJlzJfVyk02M%252C_%253BgnxWgSAnuc1MFM%252CMaxYR6zR398b5M%252C_%253B8N84JLKRZDIfWM%252C8VCMW56v15o1PM%252C_%253BDYRbZP3MwAtqJM%252C3ldcd4qASjBDkM%252C_&usg=AI4_-kTTUKyabyGw_U2cv9Tdf2iJq6z96g&sa=X&ved=2ahUKEwj_jNXojIr2AhVVTGwGHY5lABkQ9QF6BAgHEAE#imgrc=gnxWgSAnuc1MFM" class = "image" crossorigin="anonymous" />
+            <img src = "https://www.google.com/search?q=cartoon+images&rlz=1C1ONGR_enIN945IN945&sxsrf=APq-WBvkW0quV7UQGZBwoN94DkFReEuWKg:1645216433266&tbm=isch&source=iu&ictx=1&vet=1&fir=fzi7iHfluoQI0M%252C9BIeJDHfn5pFcM%252C_%253BbHs5OGmSUL9tbM%252CdOoxP5_ao8d4yM%252C_%253BSGjyUI8sXUJpVM%252CBe05mWAeLaRwzM%252C_%253B5OTOge3y1F0SyM%252CvybX5C2OXJcY2M%252C_%253Bf1kLFksEOf0HtM%252CtEOfIPmXcqChVM%252C_%253BfnF05X4o19aiaM%252CjaXbvt1Vrk8kAM%252C_%253Bb8CaxgMAd5eAkM%252CqdglPui-Aqpn8M%252C_%253BJxuk6D49qRYV2M%252CAvxIzeqhipYrBM%252C_%253BXNv7F05cZ_ePZM%252CxOZwh5qrnqCxaM%252C_%253Bza2dOIQWk01GzM%252C-76aqzfheNEvJM%252C_%253B0Kf6yOKmj4JGSM%252CKi_s_JNsRUUR-M%252C_%253BtzBnyv10u0yXwM%252CAabyjzrAPyr3wM%252C_%253Bx94hm5PrazsflM%252CaVvhUV3s5R8x-M%252C_%253BQQJQvfZLYEGGtM%252CJQku3dgFniRM9M%252C_%253B8Ms_4REHZcO67M%252Cr-Fh9r52AkdzJM%252C_%253B88-Xt8a6vo0dTM%252CmTjJlzJfVyk02M%252C_%253BgnxWgSAnuc1MFM%252CMaxYR6zR398b5M%252C_%253B8N84JLKRZDIfWM%252C8VCMW56v15o1PM%252C_%253BDYRbZP3MwAtqJM%252C3ldcd4qASjBDkM%252C_&usg=AI4_-kTTUKyabyGw_U2cv9Tdf2iJq6z96g&sa=X&ved=2ahUKEwj_jNXojIr2AhVVTGwGHY5lABkQ9QF6BAgcEAE#imgrc=QQJQvfZLYEGGtM" class = "image" crossorigin="anonymous" />
+            <img src = "https://www.google.com/search?q=cartoon+images&rlz=1C1ONGR_enIN945IN945&sxsrf=APq-WBvkW0quV7UQGZBwoN94DkFReEuWKg:1645216433266&tbm=isch&source=iu&ictx=1&vet=1&fir=fzi7iHfluoQI0M%252C9BIeJDHfn5pFcM%252C_%253BbHs5OGmSUL9tbM%252CdOoxP5_ao8d4yM%252C_%253BSGjyUI8sXUJpVM%252CBe05mWAeLaRwzM%252C_%253B5OTOge3y1F0SyM%252CvybX5C2OXJcY2M%252C_%253Bf1kLFksEOf0HtM%252CtEOfIPmXcqChVM%252C_%253BfnF05X4o19aiaM%252CjaXbvt1Vrk8kAM%252C_%253Bb8CaxgMAd5eAkM%252CqdglPui-Aqpn8M%252C_%253BJxuk6D49qRYV2M%252CAvxIzeqhipYrBM%252C_%253BXNv7F05cZ_ePZM%252CxOZwh5qrnqCxaM%252C_%253Bza2dOIQWk01GzM%252C-76aqzfheNEvJM%252C_%253B0Kf6yOKmj4JGSM%252CKi_s_JNsRUUR-M%252C_%253BtzBnyv10u0yXwM%252CAabyjzrAPyr3wM%252C_%253Bx94hm5PrazsflM%252CaVvhUV3s5R8x-M%252C_%253BQQJQvfZLYEGGtM%252CJQku3dgFniRM9M%252C_%253B8Ms_4REHZcO67M%252Cr-Fh9r52AkdzJM%252C_%253B88-Xt8a6vo0dTM%252CmTjJlzJfVyk02M%252C_%253BgnxWgSAnuc1MFM%252CMaxYR6zR398b5M%252C_%253B8N84JLKRZDIfWM%252C8VCMW56v15o1PM%252C_%253BDYRbZP3MwAtqJM%252C3ldcd4qASjBDkM%252C_&usg=AI4_-kTTUKyabyGw_U2cv9Tdf2iJq6z96g&sa=X&ved=2ahUKEwj_jNXojIr2AhVVTGwGHY5lABkQ9QF6BAgLEAE#imgrc=88-Xt8a6vo0dTM" class = "image" crossorigin="anonymous" />
+            <img src = "https://pixabay.com/images/search/cartoon/" class = "image" />
+         </div>
+         <div id = "mainRoom"></div>
+      </div>
+   </body>
+</html>
+
+
+
+

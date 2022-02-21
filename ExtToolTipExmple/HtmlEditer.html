@@ -1,0 +1,23 @@
+//This Ext JS UI widget is to create a html editor so that the user can edit a piece of information in terms of font, //color, size, etc.
+<html>
+   <head>
+      <link href = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" 
+         rel = "stylesheet" />
+      <script type = "text/javascript" 
+         src = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+      
+      <script type = "text/javascript">
+         Ext.onReady(function() {
+            Ext.create('Ext.form.HtmlEditor', {
+               width: '100%',
+               height: '100%',
+               renderTo: document.getElementById('editorId')
+            });
+         });
+      </script>
+   </head>
+   
+   <body>
+      <div id = "editorId"></div>
+   </body>
+</html>

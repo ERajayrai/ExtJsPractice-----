@@ -1,0 +1,72 @@
+// this chart is use for represent data in line graph formate.
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <link href = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" 
+         rel = "stylesheet" />
+      <script type = "text/javascript" 
+         src = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+      <script type = "text/javascript" 
+         src = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/packages/charts/classic/charts.js"></script>
+      <link href = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/packages/charts/classic/classic/resources/charts-all.css" 
+         rel = "stylesheet" />
+      
+      <script type = "text/javascript">
+         Ext.onReady(function() {
+            Ext.create('Ext.chart.CartesianChart', {
+               renderTo: document.body,
+               width: '100%',
+               height: '100%',
+               
+               store: {
+                  fields: ['name', 'g1', 'g2'],
+                  data: [
+                     {"name": "ExtJs", "g1": 57, "g2": 59},
+                     {"name": "Node js", "g1": 45, "g2": 50},
+                     {"name": "ANGULAR", "g1": 67, "g2": 43},
+                     {"name": "EXT JS", "g1": 45, "g2": 18},
+                     {"name": "REACTjS", "g1": 30, "g2": 90}
+                  ]
+               },
+               legend: {
+                  docked: 'bottom'
+               },
+
+               //define x and y axis.
+               axes: [{
+                  type: 'numeric',
+                  position: 'left'
+               }, {
+                  type: 'category',
+                  visibleRange: [0, 5],
+                  position: 'bottom'
+               }],
+
+               //define the actual series
+               series: [{
+                  type: 'line',
+                  xField: 'name',
+                  yField: 'g1',
+                  title: 'Normal'
+               }, {
+                  type: 'line',
+                  xField: 'name',
+                  yField: 'g2',
+                  title: 'Smooth'
+               }]
+            });
+         });
+      </script>
+   </head>
+   
+   <body>
+   </body>
+</html>
